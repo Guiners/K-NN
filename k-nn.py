@@ -7,7 +7,6 @@ point1 = data[0]
 print("aaa" , point1)
 data_del = np.delete(data, 0, 0)
 data_shape = data_del.shape
-print(data_shape)
 
 def counting_distance(point, data_shape, data):
     distances = []
