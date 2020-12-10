@@ -2,8 +2,18 @@ import numpy as np
 import random
 import math as math
 import statistics as stat
+
 data = np.loadtxt(fname='F:\Code\k-nn\ABiris.data', dtype = 'str', delimiter = ",")
-point1 = data[0]
+print(data)
+#point1 = data[0]
+def create_point():
+    point = []
+    for i in range(4):
+        point.append(round(random.random() * 10, 1))
+    return point
+
+point1 = create_point()
+
 print("aaa" , point1)
 data_del = np.delete(data, 0, 0)
 data_shape = data_del.shape
@@ -16,9 +26,11 @@ def counting_distance(point, data_shape, data):
             count.append((float(point[j]) - float(data[i][j]))**2)
         distances.append([math.sqrt(sum(count)), data[i][(data_shape[1]-1)]])
         count = []
+        distances.sort()
     return distances
 
 all_distances = counting_distance(point1, data_shape, data_del)
+print(all_distances)
 def choosing_class(distances):
     common = []
     for i in range(7):
